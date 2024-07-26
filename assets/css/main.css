@@ -1,0 +1,291 @@
+:root {
+  --main-color: #6ea4d6;
+  --secondary-color: #2bbdc8;
+  --accent-color: #9be099;
+  --highlight-color: #e5e6b4;
+  --background-color: #f3f3f3;
+  --dark-color: #2e2e2e;
+}
+
+* {
+  outline: 1px solid limegreen;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: var(--background-color);
+}
+
+.navbar-container {
+  width: 100%;
+  position: fixed;
+  z-index: 9998;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+}
+
+.navbar-container .navbar-content-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-container.hidden {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-100%);
+}
+
+.navbar-container .navbar-section {
+  height: 5rem;
+}
+
+.navbar-scrolled {
+  background-color: var(--background-color);
+  box-shadow: var(--highlight-color);
+}
+.navbar-scrolled .navbar-items a{
+    color: var(--dark-color);
+}
+
+.navbar-img {
+  margin-left: 3rem;
+}
+
+.navbar-items {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.navbar-items a {
+  margin-left: 1rem;
+  margin-right: 1rem;
+  font-family: "Noto Sans", sans-serif;
+  font-weight: 700;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.navbar-items a.active {
+  color: var(--main-color);
+}
+
+.navbar-items a:hover {
+  color: var(--secondary-color);
+}
+
+.nav-icon {
+  margin-right: 3rem;
+  margin-top: 0.3rem;
+  width: 40px;
+  height: 30px;
+  position: relative;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: 0.5s ease-in-out;
+  -moz-transition: 0.5s ease-in-out;
+  -o-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+.nav-icon span {
+  display: block;
+  position: absolute;
+  height: 5px;
+  width: 100%;
+  background: var(--dark-color);
+  border-radius: 9px;
+  opacity: 1;
+  left: 0;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: 0.25s ease-in-out;
+  -moz-transition: 0.25s ease-in-out;
+  -o-transition: 0.25s ease-in-out;
+  transition: 0.25s ease-in-out;
+}
+
+.nav-icon span:nth-child(1) {
+  top: 0px;
+}
+
+.nav-icon span:nth-child(2) {
+  top: 10px;
+}
+
+.nav-icon span:nth-child(3) {
+  top: 20px;
+}
+
+.nav-icon.open span:nth-child(1) {
+  top: 10px;
+  -webkit-transform: rotate(135deg);
+  -moz-transform: rotate(135deg);
+  -o-transform: rotate(135deg);
+  transform: rotate(135deg);
+}
+
+.nav-icon.open span:nth-child(2) {
+  opacity: 0;
+  left: -60px;
+}
+
+.nav-icon.open span:nth-child(3) {
+  top: 10px;
+  -webkit-transform: rotate(-135deg);
+  -moz-transform: rotate(-135deg);
+  -o-transform: rotate(-135deg);
+  transform: rotate(-135deg);
+}
+
+.navbar-overlay {
+  position: fixed;
+  background: var(--background-color);
+  width: 80%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s, visibility 0.35s, transform 0.35s;
+  overflow: hidden;
+  transform: translateX(100%);
+  right: 0;
+}
+
+.navbar-overlay.open {
+  z-index: 9999;
+  opacity: 100;
+  visibility: visible;
+  transform: translateX(0);
+}
+
+.navbar-overlay.close {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-100%);
+}
+
+.navbar-overlay .overlay-menu .menu {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.navbar-overlay .overlay-menu .menu .item {
+  font-family: "Noto Sans", sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  color: var(--dark-color);
+  text-decoration: none;
+}
+
+.navbar-overlay .overlay-menu .menu .item.active {
+  color: var(--main-color);
+}
+.navbar-overlay .overlay-footer {
+  position: fixed;
+  width: 100%;
+  right: 0;
+  bottom: 0;
+}
+
+.overlay-footer .content {
+  align-items: center;
+}
+
+.overlay-footer .content .right {
+  display: flex;
+  justify-content: end;
+}
+
+.overlay-footer .content .title {
+  font-family: "Noto Sans", sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--dark-color);
+  text-align: center;
+}
+
+.overlay-footer .social-media a {
+  text-decoration: none;
+  color: var(--dark-color);
+}
+
+/* Main Banner */
+.main-banner {
+  width: 100%;
+}
+
+.main-banner .banner .item {
+  background-size: cover;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.main-banner .banner .item .title {
+    font-family: "Noto Sans", sans-serif;
+    font-weight: 700;
+    font-size: 5rem;
+    color: var(--highlight-color);
+}
+
+.main-banner .banner .item .description {
+    font-family: "Noto Sans", sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--highlight-color);
+    width: 60%;
+}
+
+.about-us{
+  padding: 3rem;
+}
+
+.about-us .head-title{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-us .head-title .title{
+  font-family: "Noto Sans", sans-serif;
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: var(--main-color);
+}
+
+.about-us .head-title .subtitle{
+  font-family: "Noto Sans", sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+  color: var(--dark-color);
+}
+
+.about-us .content .content-left{
+padding: 1.5rem;
+}
+
+.about-us .content .content-left img{
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: center;
+}
